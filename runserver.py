@@ -17,6 +17,7 @@ from pogom.models import init_database, create_tables, Pokemon, Pokestop, Gym
 
 from pogom.pgoapi.utilities import get_pos_by_name
 
+
 log = logging.getLogger(__name__)
 
 search_thread = Thread()
