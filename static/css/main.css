@@ -1287,6 +1287,7 @@ textarea {
   .form-control input[type="text"] {
     background-color: white;
     border: 1px solid #aaa;
+    color: #3b3b3b;
     border-radius: 4px;
     display: block;
     padding: 0 10px; }

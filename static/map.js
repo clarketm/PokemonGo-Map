@@ -639,7 +639,7 @@ $('#pokemon-switch').change(function() {
 });
 
 $('#lured-pokemon-switch').change(function() {
-    localStorage["showPokemon"] = this.checked;
+    localStorage["showLuredPokemon"] = this.checked;
     if (this.checked) {
         updateMap();
     } else {
@@ -848,6 +848,7 @@ function init () {
     // Load pokemon names and populate lists
     $.getJSON("static/locales/pokemon." + language + ".json").done(function(data) {
         var pokeList = []
+        console.log(pokeList);
 
         $.each(data, function(key, value) {
             pokeList.push( { id: key, text: value } );
