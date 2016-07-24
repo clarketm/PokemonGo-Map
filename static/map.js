@@ -137,10 +137,10 @@ function createSearchMarker() {
     google.maps.event.addListener(marker, 'dragend', function() {
         var newLocation = marker.getPosition();
         changeSearchLocation(newLocation.lat(), newLocation.lng())
-            .done(function() {
+            .then(function() {
                 oldLocation = null;
             })
-            .fail(function() {
+            .catch(function() {
                 if (oldLocation) {
                     marker.setPosition(oldLocation);
                 }
@@ -509,7 +509,7 @@ function updateMap() {
             'neLng': neLng
         },
         dataType: "json"
-    }).done(function(result) {
+    }).then(function(result) {
       $.each(result.pokemons, function(i, item){
           if (!(localStorage.showPokemon === 'true')) {
               return false; // in case the checkbox was unchecked in the meantime.
@@ -808,7 +808,7 @@ function addMyLocationButton() {
 
 function changeLocation(lat, lng) {
     var loc = new google.maps.LatLng(lat, lng);
-    changeSearchLocation(lat, lng).done(function() {
+    return changeSearchLocation(lat, lng).then(function() {
         map.setCenter(loc);
         marker.setPosition(loc);
     });
@@ -846,9 +846,8 @@ function init () {
     $selectNotify  = $("#notify-pokemon");
 
     // Load pokemon names and populate lists
-    $.getJSON("static/locales/pokemon." + language + ".json").done(function(data) {
+    $.getJSON("static/locales/pokemon." + language + ".json").then(function(data) {
         var pokeList = []
-        console.log(pokeList);
 
         $.each(data, function(key, value) {
             pokeList.push( { id: key, text: value } );
