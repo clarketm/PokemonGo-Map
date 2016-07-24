@@ -832,7 +832,7 @@ function centerMap(lat, lng, zoom) {
 // Page Ready Exection
 //
 
-$(function () {
+function init () {
     if (!Notification) {
         console.log('could not load notifications');
         return;
@@ -841,9 +841,6 @@ $(function () {
     if (Notification.permission !== "granted") {
         Notification.requestPermission();
     }
-});
-
-$(function () {
 
     $selectExclude = $("#exclude-pokemon");
     $selectNotify  = $("#notify-pokemon");
@@ -956,6 +953,7 @@ $(function () {
         }
     });
 
-});
+    initMap()
+}
 
-google.maps.event.addDomListener(window, 'load', initMap);
+google.maps.event.addDomListener(window, 'load', init);
