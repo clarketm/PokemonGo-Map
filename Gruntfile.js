@@ -75,6 +75,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-html-validation');
 
-  grunt.registerTask('default', ['jshint', 'sass', 'cssmin', 'uglify', 'watch']);
+  grunt.registerTask('build', ['sass', 'cssmin', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'build', 'watch']);
 
 };
