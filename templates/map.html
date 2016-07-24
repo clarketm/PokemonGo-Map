@@ -32,7 +32,8 @@
 
 		<link rel="stylesheet" href="static/dist/css/app.min.css">
 		<script src="static/js/vendor/modernizr.custom.js"></script>
-	</head>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&amp;libraries=places"></script>
+    </head>
 	<body id="top">
 
 	<div class="wrapper">
@@ -142,8 +143,7 @@
 		var center_lat = {{lat}};
 		var center_lng = {{lng}};
 	</script>
-
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&amp;callback=initMap&amp;libraries=places"></script>
 	<script src="static/map.js"></script>
+
 	</body>
 </html>
