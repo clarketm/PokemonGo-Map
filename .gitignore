@@ -9,5 +9,5 @@ config/credentials.json
 static/dist/
 node_modules/
 venv/
-*.env
 *.iml
+*.env
